@@ -1,0 +1,83 @@
+
+# Git Ignore File for .NET Projects (WPF/C#)
+
+
+
+###################################
+
+# VS Code, Git, etc.
+
+###################################
+
+.vscode/
+
+*.vscode
+
+.vs/
+
+*.dotsettings
+
+
+
+###################################
+
+# Temporary / Build Artifacts
+
+###################################
+
+[Dd]ebug/
+
+[Rr]elease/
+
+[Bb]in/
+
+[Oo]bj/
+
+
+
+# Windows/OS files
+
+Thumbs.db
+
+Desktop.ini
+
+
+
+# Resharper & Rider files
+
+*.ReSharperTemporaryGeneratedFiles
+
+*.DotSettings.user
+
+
+
+###################################
+
+# Visual Studio (User-Specific Files)
+
+###################################
+
+*.user
+
+*.suo
+
+*.sln.docstates
+
+
+
+# NuGet Packages directory (usually restored by VS)
+
+packages/
+
+
+
+# Test results
+
+TestResults/
+
+
+
+# Editor config
+
+.editorconfig
+
