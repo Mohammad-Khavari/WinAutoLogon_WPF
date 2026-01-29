@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Management" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Designer.png" />
     <Resource Include="inactive.png" />
     <Resource Include="lock_clean.png" />
