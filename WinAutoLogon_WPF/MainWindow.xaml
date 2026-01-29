@@ -10,43 +10,43 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
         <Grid x:Name="subGrid">
             <Label Content="Username:" x:Name="lblUsername" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Separator VerticalAlignment="Top" Height="4" Margin="0,117,0,0"/>
-        <Label Content="Domain:" x:Name="lblDomain" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" x:Name="lblPassword" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.387,0.288"/>
-        <Button Content="Check" x:Name="btnDecrypt" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="66"/>
-        <Label x:Name="lblCopyMsg" Content="Copied!" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" FontSize="24" FontWeight="Bold" Foreground="#FF2CC335" Width="99" Height="43" RenderTransformOrigin="0.604,-0.782" Margin="220,93,0,0" Visibility="Hidden"/>
-        <Image x:Name="picActive" HorizontalAlignment="Right" Height="142" VerticalAlignment="Top" Width="148" Source="/Designer.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,-6,0,0" d:Visibility="Visible" Visibility="Collapsed">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Image x:Name="picInactive" HorizontalAlignment="Right" Height="133" VerticalAlignment="Top" Width="148" Source="/inactive.png" Stretch="Fill" d:Visibility="Visible"  Visibility="Collapsed"/>
-        <Label Content="Username:" x:Name="lblUName" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.387,0.288"/>
-        <Label Content="Domain:" 
+            <Separator VerticalAlignment="Top" Height="4" Margin="0,117,0,0"/>
+            <Label Content="Domain:" x:Name="lblDomain" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+            <Label Content="Password:" x:Name="lblPassword" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.387,0.288"/>
+            <Button Content="Check" x:Name="btnDecrypt" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="66"/>
+            <Label x:Name="lblCopyMsg" Content="Copied!" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" FontSize="24" FontWeight="Bold" Foreground="#FF2CC335" Width="99" Height="43" RenderTransformOrigin="0.604,-0.782" Margin="220,93,0,0" Visibility="Hidden"/>
+            <Image x:Name="picActive" HorizontalAlignment="Right" Height="142" VerticalAlignment="Top" Width="148" Source="/Designer.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,-6,0,0" d:Visibility="Visible" Visibility="Collapsed">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="picInactive" HorizontalAlignment="Right" Height="133" VerticalAlignment="Top" Width="148" Source="/inactive.png" Stretch="Fill" d:Visibility="Visible"  Visibility="Collapsed"/>
+            <Label Content="Username:" x:Name="lblUName" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.387,0.288"/>
+            <Label Content="Domain:" 
                x:Name="lblDM" 
                HorizontalAlignment="Left" 
                Margin="10,155,0,0" 
                VerticalAlignment="Top" 
                RenderTransformOrigin="0.387,0.288"/>
-        <Label Content="Password:" 
+            <Label Content="Password:" 
                x:Name="lblPW" 
                HorizontalAlignment="Left" 
                Margin="10,180,0,0" 
                VerticalAlignment="Top" 
                RenderTransformOrigin="0.387,0.288"/>
-        <TextBox x:Name="txtUserName" 
+            <TextBox x:Name="txtUserName" 
                  HorizontalAlignment="Left" 
                  VerticalContentAlignment="Center"
                  Margin="81,0,0,0" 
                  TextWrapping="Wrap" 
                  VerticalAlignment="Center" 
                  Width="238" Height="21"/>
-        <TextBox x:Name="txtDomain" 
+            <TextBox x:Name="txtDomain" 
                  HorizontalAlignment="Left" 
                  VerticalContentAlignment="Center"
                  Margin="81,158,0,0" 
@@ -54,17 +54,17 @@
                  VerticalAlignment="Top" 
                  Width="238" 
                  Height="21"/>
-        <Image x:Name="picBoxLock" HorizontalAlignment="Right" Height="121" VerticalAlignment="Top" Width="122" Source="/lock_clean.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,126,10,0">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button x:Name="btnCheckKioskMode" 
+            <Image x:Name="picBoxLock" HorizontalAlignment="Right" Height="121" VerticalAlignment="Top" Width="122" Source="/lock_clean.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,126,10,0">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button x:Name="btnCheckKioskMode" 
                 Content="Check K" 
                 Click="DetectKiosk"
                 HorizontalAlignment="Left" 
@@ -72,33 +72,33 @@
                 VerticalAlignment="Top" 
                 Width="72" Height="30" 
                 RenderTransformOrigin="0.166,-0.269"/>
-        <Button x:Name="btnSetAutoLogon" 
+            <Button x:Name="btnSetAutoLogon" 
                 Content="Activate" 
                 HorizontalAlignment="Left" 
                 Margin="87,247,0,10" 
                 VerticalAlignment="Top" 
                 Width="72" 
                 Height="30"/>
-        <Button x:Name="btnDeactive" 
+            <Button x:Name="btnDeactive" 
                 Content="Deactivate" 
                 HorizontalAlignment="Left" 
                 Margin="164,247,0,10" 
                 VerticalAlignment="Top" 
                 Width="72" Height="30"/>
-        <Button x:Name="btnExit" 
+            <Button x:Name="btnExit" 
                 Content="Exit" 
                 Click="CloseApp"
                 HorizontalAlignment="Left" 
                 Margin="241,247,0,10" 
                 VerticalAlignment="Top" 
                 Width="72" Height="30"/>
-        <TextBox x:Name="TxtVisiblePWInput" 
+            <TextBox x:Name="TxtVisiblePWInput" 
                  HorizontalAlignment="Left" 
                  VerticalContentAlignment="Center"
                  Margin="81,182,0,0" TextWrapping="Wrap" 
                  VerticalAlignment="Top" 
                  Width="238" Height="21" Visibility="Hidden"/>
-        <Button x:Name="BtnShowPW" 
+            <Button x:Name="BtnShowPW" 
                 Click="PWVisibleClicked"
                 Content="‿" 
                 HorizontalAlignment="Left" 
@@ -110,7 +110,7 @@
                 RenderTransformOrigin="0.5,0.5" 
                 BorderBrush="#FF707070" 
                 Background="#FFF9F3B5" FontSize="20" FontWeight="Bold"/>
-        <TextBlock x:Name="MsgBox"
+            <TextBlock x:Name="MsgBox"
                    Text="Password is currently hidden."
                    HorizontalAlignment="Left" 
                    Margin="87,208,0,0" 
@@ -118,22 +118,23 @@
                    VerticalAlignment="Top" 
                    Foreground="#7F8C8D"
                    Width="274" Height="34"/>
-        <PasswordBox x:Name="txtPassword" 
+            <PasswordBox x:Name="txtPassword" 
                      PasswordChar="*" 
                      Margin="81,182,0,0" 
                      VerticalAlignment="Top" 
                      VerticalContentAlignment="Center"
                      Width="238" 
                      Height="21" HorizontalAlignment="Left" Password="Mohammad" RenderTransformOrigin="0.492,2.859">
-            <PasswordBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </PasswordBox.RenderTransform>
-        </PasswordBox>
+                <PasswordBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </PasswordBox.RenderTransform>
+            </PasswordBox>
+            <Label x:Name="lblWarning" Content="The password is not encrypted in registry!" HorizontalAlignment="Left" Margin="106,92,0,0" VerticalAlignment="Top" Width="230" Height="27" d:Visibility="Visible" Visibility="Collapsed" FontStyle="Italic" Foreground="#FFEFC42A"/>
         </Grid>
     </Grid>
 </Window>
