@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WinAutoLogon_WPF"
         mc:Ignorable="d"
-        Title="Auto Logon" Height="305" Width="520" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="Height" WindowStyle="ThreeDBorderWindow">
+        Title="Auto Logon" Height="305" Width="520" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="Height" WindowStyle="ThreeDBorderWindow" Loaded="FrmMain_Loaded">
     <Grid x:Name="MainGrid">
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
         <Grid x:Name="subGrid">
@@ -14,7 +14,6 @@
             <Label Content="Domain:" x:Name="lblDomain" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
             <Label Content="Password:" x:Name="lblPassword" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.387,0.288"/>
             <Button Content="Check" x:Name="btnDecrypt" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="66"/>
-            <Label x:Name="lblCopyMsg" Content="Copied!" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" FontSize="24" FontWeight="Bold" Foreground="#FF2CC335" Width="99" Height="43" RenderTransformOrigin="0.604,-0.782" Margin="220,93,0,0" Visibility="Hidden"/>
             <Image x:Name="picActive" HorizontalAlignment="Right" Height="142" VerticalAlignment="Top" Width="148" Source="/Designer.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Margin="0,-6,0,0" d:Visibility="Visible" Visibility="Collapsed">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -117,14 +116,14 @@
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top" 
                    Foreground="#7F8C8D"
-                   Width="274" Height="34"/>
+                   Width="274" Height="34" d:Visibility="Visible" Visibility="Collapsed"/>
             <PasswordBox x:Name="txtPassword" 
                      PasswordChar="*" 
                      Margin="81,182,0,0" 
                      VerticalAlignment="Top" 
                      VerticalContentAlignment="Center"
                      Width="238" 
-                     Height="21" HorizontalAlignment="Left" Password="Mohammad" RenderTransformOrigin="0.492,2.859">
+                     Height="21" HorizontalAlignment="Left" RenderTransformOrigin="0.492,2.859">
                 <PasswordBox.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -134,7 +133,7 @@
                     </TransformGroup>
                 </PasswordBox.RenderTransform>
             </PasswordBox>
-            <Label x:Name="lblWarning" Content="The password is not encrypted in registry!" HorizontalAlignment="Left" Margin="106,92,0,0" VerticalAlignment="Top" Width="230" Height="27" d:Visibility="Visible" Visibility="Collapsed" FontStyle="Italic" Foreground="#FFEFC42A"/>
+            <Label x:Name="lblMsg" Content="The password is not encrypted in registry!" HorizontalAlignment="Left" Margin="101,90,0,0" VerticalAlignment="Top" Width="230" Height="27" d:Visibility="Visible" Visibility="Collapsed" FontStyle="Italic" Foreground="#FFEFC42A"/>
         </Grid>
     </Grid>
 </Window>
