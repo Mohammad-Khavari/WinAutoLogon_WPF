@@ -22,6 +22,7 @@ namespace WinAutoLogon_WPF
       InitializeComponent();
       btnDecrypt.Click += (s, e) => CheckAndDecrypt();
       btnSetAutoLogon.Click += (s, e) => SetAutoLogon.SetAutoLogonConfig(txtUserName.Text, txtDomain.Text, txtPassword.Password, CheckAndDecrypt);
+      btnDeactive.Click += (s, e) => DeactivateAutoLogon.Deactivate(CheckAndDecrypt);
     }
 
     private void BtnShowPW_Clicked(object sender, RoutedEventArgs e)
@@ -166,17 +167,17 @@ namespace WinAutoLogon_WPF
 
     private string GetRegistryValue(RegistryKey key, string valueName, ref string debugInfo)
     {
-      object valueObj = key.GetValue(valueName, "Not set");
-      string value = "Not set";
+      object valueObj = key.GetValue(valueName, string.Empty);
+      string value = string.Empty;
       string valueKind = "N/A";
 
       if (Array.Exists(key.GetValueNames(), name => name.Equals(valueName, StringComparison.OrdinalIgnoreCase)))
       {
         valueKind = key.GetValueKind(valueName).ToString();
-        if (valueObj != null && valueObj.ToString() != "Not set")
+        if (valueObj != null && valueObj.ToString() != string.Empty)
         {
           value = valueObj.ToString().Trim();
-          if (string.IsNullOrEmpty(value)) value = "Empty string detected";
+          if (string.IsNullOrEmpty(value)) value = string.Empty;
         }
       }
       else
@@ -194,7 +195,7 @@ namespace WinAutoLogon_WPF
       string regPath = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon";
       string debugInfo = "Registry Debug Info:\n";
 
-      if (!WinAPI.OpenPolicy(null, out policyHandle))
+      if (!WinAPI.OpenPolicy(string.Empty, out policyHandle))
       {
         throw new Exception($"LsaOpenPolicy failed: {Marshal.GetLastWin32Error()}");
       }
@@ -209,12 +210,12 @@ namespace WinAutoLogon_WPF
         else if (!string.IsNullOrEmpty(GetRegistryValue(key64, "DefaultPassword", ref debugInfo)))
         {
           lblPassword.Foreground = Brushes.Red;
-          lblWarning.Visibility = Visibility.Visible;
+          lblMsg.Visibility = Visibility.Visible;
           pw = GetRegistryValue(key64, "DefaultPassword", ref debugInfo);
         }
         else
         {
-          pw = "No password found!";
+          pw = "Not found!";
         }
 
         return pw;
@@ -225,6 +226,61 @@ namespace WinAutoLogon_WPF
         WinAPI.CloseHandle(policyHandle);
       }
 
+    }
+
+    private static string[] GetUsernameAndDomain()
+    {
+      try
+      {
+        string[] values = new string[2];
+        values[0] = WindowsIdentity.GetCurrent().Name.Split('\\')[1];
+        values[1] = WindowsIdentity.GetCurrent().Name.Split("\\")[0];
+        return values;
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show($"Can not retrieve Username and Domain!\n{ex.Message} ","Error",MessageBoxButton.OK,MessageBoxImage.Error);
+        return [string.Empty,string.Empty];
+      }
+    }
+
+    private void FrmMain_Loaded(object sender, RoutedEventArgs e)
+    {
+      string[] infos = GetUsernameAndDomain();
+
+      txtUserName.Text = infos[0];
+      txtDomain.Text = infos[1];
+
+      lblUsername.MouseDoubleClick += (s, e) => CopyToClipboard(lblUsername);
+      lblDomain.MouseDoubleClick += (s, e) => CopyToClipboard(lblDomain);
+      lblPassword.MouseDoubleClick += (s, e) => CopyToClipboard(lblPassword);
+    }
+
+    private async void CopyToClipboard(Label label)
+    {
+      string[] infos = label.Content.ToString()!.Split(':');
+      if (infos.Length > 1 && !string.IsNullOrEmpty(infos[1]))
+      {
+        if (infos[1].StartsWith(" Not"))
+        {
+          return;
+        }
+        Clipboard.SetText(infos[1]);
+
+        lblMsg.Content = "Copied!";
+        lblMsg.Foreground = Brushes.Green;
+        lblMsg.FontSize = 18;
+        lblMsg.Visibility = Visibility.Visible;
+        lblMsg.Margin = new Thickness(120, 80, 0, 0);
+        lblMsg.Height = 40;
+        await Task.Delay(1000);
+        lblMsg.Visibility = Visibility.Collapsed;
+        lblMsg.FontSize = 12;
+        lblMsg.Margin = new Thickness(101,90, 0, 0);
+        lblMsg.Height = 27;
+        lblMsg.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString("#00FFFFFF")!;
+        lblMsg.Content = "The password is not encrypted in registry!";
+      }
     }
   }
 }
